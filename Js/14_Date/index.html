@@ -3,32 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Date</title>
 </head>
 <body>
-    
+    <div id="output"></div>
 
     <script>
-
-        console.log(Date.now())      
-
-        console.log(new Date(Date.now()))
-        document.writeln(new Date());
-
-        function dayleft(){
-
-            var today = new Date();
-            var endyear = new Date(today.getFullYear(),4,14,23,599,59,999);
-            var msPerDay = 24 *60 * 60 *1000;
-            var result = (endyear.getTime() - today.getTime())/msPerDay;
-
-
-            document.writeln(`<br>${Math.floor(result)}`)
-
+        // Show current date
+        const output = document.getElementById('output');
+        output.innerHTML = `当前时间: ${new Date()}<br>`;
+        
+        // Calculate remaining days
+        function daysLeft() {
+            const today = new Date();
+            // Set Target Date（Feb,31,23:59:59:999）
+            const endYear = new Date(today.getFullYear(), 11, 31, 23, 59, 59, 999);
+            const msPerDay = 24 * 60 * 60 * 1000;
+            const result = (endYear.getTime() - today.getTime()) / msPerDay;
+            
+            output.innerHTML += `今年剩余天数: ${Math.floor(result)}`;
         }
 
-        dayleft();
-
+        daysLeft();
     </script>
 </body>
 </html>
