@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>File Overlay</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("https://m.media-amazon.com/images/M/MV5BNDUwNjBkMmUtZjM2My00NmM4LTlmOWQtNWE5YTdmN2Y2MTgxXkEyXkFqcGdeQXRyYW5zY29kZS13b3JrZmxvdw@@._V1_.jpg");
+      background-repeat: no-repeat;
+    }
+
+    /* Side Tab */
+    .side-tab {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 8px 0 0 8px;
+      z-index: 1000;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(6px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .overlay-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-size: 18px;
+      color: #888;
+    }
+
+    .file-list {
+      margin-top: 10px;
+    }
+
+    .file-list li {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="side-tab" onclick="toggleOverlay()">📁 Files</div>
+
+  <div id="fileOverlay" class="overlay">
+    <div class="overlay-content">
+      <span class="close-btn" onclick="toggleOverlay()">✖</span>
+      <h2>Uploaded Files</h2>
+      <ul class="file-list">
+        <li>scrimmage02.docx</li>
+        <li>comments-02.txt</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleOverlay() {
+      const overlay = document.getElementById('fileOverlay');
+      overlay.style.display = (overlay.style.display === 'flex') ? 'none' : 'flex';
+    }
+  </script>
+
+</body>
+</html>

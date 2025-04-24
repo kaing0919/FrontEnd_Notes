@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>hello1</div>
+    <div>hello2</div>
+    <p class="text">Hello</p>
+
+    <form class="login"> </form>
+
+    <div id="root">Hahahah</div>
+
+    <div class="nav">nav1</div>
+    <div class="nav">nav2</div>
+
+    <script>
+
+        //Return a array-like HTML collection. If no match, return an empty set
+        var div = document.getElementsByTagName("div")[0];
+        div.innerHTML = "Hello World";
+
+
+        //Return a set of element with class name text
+        var text = document.getElementsByClassName("text")[0];
+        text.innerHTML = "Hello World";
+
+        //Not oftenly used
+        var name = document.getElementsByName("login");
+        console.log(name);
+
+        //One element
+        var root = document.getElementById("root");
+        root.innerHTML = "hehehe";
+
+
+        //QuerySelector: Takes a CSS selector as parameter, Returns the first element that matches a CSS selector. 
+        // If not found, return null
+        var nav = document.querySelector(".nav")
+        //Changed nav1 to nav111
+        nav.innerHTML = "nav111";
+        console.log(nav)
+
+
+        var navs = document.querySelectorAll(".nav")[1];
+        //Changed nav2 to nav222
+        navs.innerHTML = "nav222";
+
+
+    </script>
+
+
+</body>
+</html>

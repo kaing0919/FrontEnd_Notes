@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="nav">Navigation
+
+        <div class="title"></div>
+
+    </div>
+    <div id="container"></div>
+
+    <script>
+
+        var text = document.createElement("p");
+        var content = document.createTextNode("Hello World");
+
+        // <p>Hello World</p>
+        text.appendChild(content);
+
+        var id = document.createAttribute("id");
+        id.value = 15;
+        // <p id="15" >Hello World</p>
+        text.setAttributeNode(id);
+        console.log(text);
+
+
+        var container = document.getElementById("container");
+        container.appendChild(text);
+        container.removeChild(text);
+
+        var title = document.getElementsByClassName("title")[0];
+        title.style.border = "3px solid black";
+        title.style.width = "300px";
+        title.style.height = "300px";
+
+        var nav = document.getElementsByClassName("nav")[0];
+
+        nav.innerText = "";
+
+    </script>
+
+
+</body>
+</html>

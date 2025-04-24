@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+    div{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      animation: myframe 3s linear 0s infinite;
+    }
+
+    div:hover{
+      animation-play-state: paused;
+    }
+
+    @keyframes myframe{
+      from{
+        background-color: red;
+      }
+      50%{
+        background-color: green;
+      }
+
+      to{
+        background-color: red;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+ <div></div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let arr = [1,2,3,4,5];
+
+        //5
+        document.write(Math.max(...arr));
+        document.write("<br>");
+        //9
+        document.write(Math.max(3,1,2,'9') + "<br>");
+        //1
+        document.write(Math.min(3,1,2,'9'));
+
+
+        Math.abs(-1) //1
+
+
+        var num1 = 10.45;
+        //11
+        console.log(Math.ceil(num1))
+
+        //10
+        console.log(Math.floor(num1))
+
+
+        var max = 100;
+        var min = 0;
+
+        var result = Math.random() * (max - min) + min
+
+        console.log(Math.floor(result)); 
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .box{
+            width: 200px;
+            height: 220px;
+
+            border: 5px solid red;
+
+            padding-left: 10px;
+            padding-right: 15px;
+
+            padding-top: 20px;
+            padding-bottom: 30px;
+
+            margin: 20px;
+            background-color: green;
+        }
+
+        h3{
+            height: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="box"></div>
+
+    <h3>title 1</h3>
+    <h3>title 2</h3>
+    <h3>title 3</h3>
+    <h3>title 4</h3>
+
+
+    <script>
+
+        var box = document.getElementsByClassName("box")[0];
+        //Include padding, excluding madgin: 200(width) + 10(padding-left)+ 15(padding-right) = 225
+        console.log(box.clientWidth);
+
+        //Include padding, excluding madgin: 220(height) + 20(padding-top)+ 30(padding-bottom) = 270
+        console.log(box.clientHeight);
+
+        // Screen height
+        console.log(document.documentElement.clientHeight);
+        // Page height
+        console.log(document.body.clientHeight);
+
+
+        console.log("-------------------------------")
+
+
+        //Include padding, excluding border, margin. Include invisible overflowed content
+        console.log(box.scrollWidth);
+
+        //Include padding, excluding border, margin. Include invisible overflowed content
+        console.log(box.scrollHeight);
+
+        // Screen height
+        console.log(document.documentElement.scrollHeight);
+        // Page height
+        console.log(document.body.scrollHeight);
+
+
+        console.log("-------------------------------")
+
+
+        //Vertical scrolling down px
+        console.log(document.documentElement.scrollTop);
+
+        //Horizontal scrolling left
+        console.log(document.documentElement.scrollLeft);
+
+
+        console.log("-------------------------------")
+
+        console.log(document.documentElement.offsetHeight)
+        console.log(document.documentElement.offsetWidth)
+
+        //include height + padding-top + padding-bottom + border-top + border-bottom
+        console.log(box.offsetHeight)
+        console.log(box.offsetWidth)
+
+    </script>
+
+
+</body>
+</html>

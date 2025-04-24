@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        #btn {
+            display: block;
+            border-radius: 50px;
+            padding: 10px 10px;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 40vh;
+            writing-mode: sideways-lr;
+            font-weight: bold;
+            height: 80px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <button id="btn">Bright</button>
+
+    
+    <script>
+
+        var btn = document.getElementById("btn");
+        var body = document.body;
+
+        btn.addEventListener("click", () => {
+
+            if (body.style.backgroundColor === "rgb(26, 26, 26)"){
+                body.style.backgroundColor = "white";
+                btn.innerHTML = "Bright";
+                btn.style.backgroundColor = "white";
+                btn.style.color = "black";
+                btn.style.transition = "background-color 2s ease";
+            }
+            else{
+                body.style.backgroundColor = "#1A1A1A";
+                btn.innerHTML = "Dark";
+                btn.style.color = "#f9f9f9";
+                btn.style.backgroundColor = "black";
+                btn.style.transition = "background-color 2s ease";
+            }
+
+        })
+
+
+    </script>
+
+
+</body>
+</html>

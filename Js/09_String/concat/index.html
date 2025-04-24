@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var s1 = "hello";
+        var s2 = " World";
+        var s4 = 5;
+        var s5 = 5;
+
+        s1.concat(s2); // "hello World"
+
+        document.writeln(s1); //hello
+
+        s1 = s1.concat(s2);
+
+        document.write(s1); //hello World
+
+
+        document.write("<br>"); 
+        //Able to take multiple strings
+        var s3 = s1.concat(s2,s1,s2)
+        document.write(s3); 
+
+
+        var result = s1 + s2 + s3;
+        document.write("<br>"); 
+        var result2 = s4 + s5 + s1;
+        // return "10hello World"
+        document.write(result2); 
+
+
+
+
+    </script>
+
+
+</body>
+</html>

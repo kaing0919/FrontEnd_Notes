@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="box" id="root">Hello</div>
+
+    <script>
+
+        var root = document.getElementById("root");
+        root.id = "roots";
+        root.className = "box1 box2"
+
+        /*
+        Element.ClassList include following methods:
+        add()
+        remove()
+        contains()
+        toggle()
+        
+        */
+        root.classList.add("box3");
+        root.classList.add("box4", "box5");
+        root.classList.remove("box5");
+        root.classList.toggle("box5"); //If box5 not exist, then push. Else, remove.
+        console.log(root.classList.contains("box5")); //Return true
+
+
+        console.log(root.innerHTML) // Read content; InnerHTML read labels
+        console.log(root.innerText) // Read content; InnerHTML read text
+
+        var str = "<p>Hello World</p>";
+
+        root.innerHTML = str;  //Hello World
+        root.innerText = str;  //<p>Hello World</p>
+    </script>
+
+</body>
+</html>
