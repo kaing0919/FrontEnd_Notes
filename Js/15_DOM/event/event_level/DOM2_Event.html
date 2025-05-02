@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button class="btn">submit</button>
+
+    <script>
+
+        //DOM2 Event: Pros: Event won't be covered Cons: More Complex
+
+        var btn = document.getElementsByClassName("btn")[0];
+        var count = 0;
+        btn.addEventListener("click", () => {
+            console.log("Clicked" + (++count));
+
+        })
+
+        btn.addEventListener("click", f1);
+        btn.addEventListener("click", f2);
+        btn.addEventListener("click", f3);
+
+        function f1(){ console.log("Process1"); }
+        function f2(){ console.log("Process2"); }
+        function f3(){ console.log("Process3"); }
+
+        btn.removeEventListener("click", f2);
+    </script>
+
+</body>
+</html>

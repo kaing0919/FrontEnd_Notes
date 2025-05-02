@@ -42,10 +42,10 @@
     <script>
 
         var box = document.getElementsByClassName("box")[0];
-        //Include padding, excluding madgin: 200(width) + 10(padding-left)+ 15(padding-right) = 225
+        //Include padding, excluding border and margin: 200(width) + 10(padding-left)+ 15(padding-right) = 225
         console.log(box.clientWidth);
 
-        //Include padding, excluding madgin: 220(height) + 20(padding-top)+ 30(padding-bottom) = 270
+        //Include padding, excluding border and margin: 220(height) + 20(padding-top)+ 30(padding-bottom) = 270
         console.log(box.clientHeight);
 
         // Screen height
@@ -57,10 +57,10 @@
         console.log("-------------------------------")
 
 
-        //Include padding, excluding border, margin. Include invisible overflowed content
+        //Include padding, excluding border and margin. Include invisible overflowed content
         console.log(box.scrollWidth);
 
-        //Include padding, excluding border, margin. Include invisible overflowed content
+        //Include padding, excluding border and margin. Include invisible overflowed content
         console.log(box.scrollHeight);
 
         // Screen height
@@ -81,6 +81,7 @@
 
         console.log("-------------------------------")
 
+        
         console.log(document.documentElement.offsetHeight)
         console.log(document.documentElement.offsetWidth)
 

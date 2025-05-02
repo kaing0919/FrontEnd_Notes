@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .title-box {
+            width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="title-box" id="titleBox">
+        <span id="titleText">这是一个很长的标题，看看会不会溢出</span>
+    </div>
+
+    <script>
+    
+        const box = document.getElementById('titleBox');
+        const text = document.getElementById('titleText');
+        
+        if (text.scrollWidth > box.clientWidth) {
+          console.log('内容溢出了，可以显示 "阅读全文" 按钮');
+        }
+
+    </script>
+      
+</body>
+</html>

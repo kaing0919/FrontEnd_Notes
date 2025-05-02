@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul id="list">
+        <li>List 1</li>
+        <li>List 2</li>
+        <p>Hello World</p>
+    </ul>
+
+    <script>
+        var list = document.getElementById("list");
+        // list.onclick = function(){ console.log("Clicked") }
+
+        list.addEventListener("click", function(e){
+            if(e.target.tagName.toLowerCase() === 'li'){
+                alert(`${e.target.innerText}`)
+            }
+        })
+
+
+    </script>
+
+</body>
+</html>

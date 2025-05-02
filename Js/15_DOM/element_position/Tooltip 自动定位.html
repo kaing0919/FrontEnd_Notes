@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .tooltip {
+                    position: absolute;
+                    background: black;
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 4px;
+                    display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button id="myBtn">点击我</button>
+    <div id="tooltip" class="tooltip">这是一个提示框</div>
+
+    <script>
+    
+        const btn = document.getElementById('myBtn');
+        const tip = document.getElementById('tooltip');
+        
+        btn.addEventListener('click', () => {
+          const { offsetTop, offsetLeft, offsetHeight } = btn;
+        
+          if (tip.style.display == 'block'){
+            tip.style.display = 'none';
+          }
+          else{
+            tip.style.top = `${offsetTop + offsetHeight + 8}px`; // 下方8px
+            tip.style.left = `${offsetLeft}px`;
+            tip.style.display = 'block';
+          }
+
+
+        });
+
+
+
+    </script>
+     
+</body>
+</html>

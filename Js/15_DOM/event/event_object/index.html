@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btn">Submit</button>
+
+    <a href="https://itbaizhan.com" id="it">itbaizhan</a>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+
+        btn.addEventListener("click", function(event){
+            //PointerEvent
+            console.log(event);
+            //<button id="btn">button</button>
+            console.log(event.target);
+            //click
+            console.log(event.type);
+            event.target.innerHTML = "Double click to Confirm";
+        })
+
+        btn.ondblclick = (e) =>{
+            e.target.innerHTML = "Confirmed"
+            alert("Event Confirmed")
+        }
+
+        var it = document.getElementById("it");
+        it.onclick = (e) =>{ 
+            e.preventDefault();
+            alert("Clicked");
+        }
+
+
+    </script>
+    
+    <script>
+
+
+    </script>
+
+
+</body>
+</html>

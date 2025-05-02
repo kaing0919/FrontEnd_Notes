@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id ="username">
+    <input type="text" id="password">
+
+    <script>
+
+        /*
+        Form event:
+
+        input - When data being input
+        select - when data is selected
+        change - Execute when enter key is pressed or leaving element
+
+        */
+
+        var username = document.querySelector("input");
+
+        //input
+        username.addEventListener("input", (e) =>{console.log(e.target.value)})
+        //Or
+        username.oninput = function(e){
+            console.log(e.target.value);
+        }
+
+        //Select
+        username.onselect = function(){
+            console.log("Selected")
+        }
+
+        var password = document.getElementById("password");
+        password.onchange = function(e){
+            console.log(e.target.value);
+        }
+
+
+
+
+
+    
+
+
+    </script>
+    
+</body>
+</html>

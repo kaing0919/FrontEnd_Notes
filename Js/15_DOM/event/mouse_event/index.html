@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button class="btn">Button</button>
+    <button class="btn">Button</button>
+    <script>
+
+        /*
+        Mouse Events:
+
+        click
+        dblclick - double clicked
+
+        mousedown - triggered when press down mouse key
+        mouseup - Triggered when release mouse key
+
+        mousemove - Moving within the element will triggered event continuously
+
+        mouseenter - When mouse enter element; Won't trigger when entering child element
+        mouseleave - When mouse leave element; Won't trigger when leaving father element
+
+        mouseover - When mouse enter element; Will trigger again when entering child element
+        mouseout - When mouse leave element; Will trigger when leaving father element
+        
+        wheel - Scroll mouse wheel
+        */
+
+        var btn = document.getElementsByClassName("btn")[0];
+        var btn2 = document.getElementsByClassName("btn")[1];
+
+        btn.onclick = function(){ console.log("clicked") };
+        btn.ondblclick = function(){ console.log("double clicked") };
+        btn.onmousedown = function(){ console.log("mouse down") };
+        btn.onmouseup = function(){ console.log("mouse up") };
+        btn.onmousemove = function(){ console.log("mouse moved")};
+        btn.onmouseenter = function(){ console.log("mouse enter") };
+        btn.onmouseleave = function(){ console.log("mouse leave") };
+        btn.onmouseover = function(){ console.log("mouse over") };
+        btn.onmouseout = function(){ console.log("mouse out") };
+        btn.onwheel = function(){ console.log("wheel scrolled") };
+
+
+        btn2.addEventListener("mouseenter", ()=>{
+            alert("Entered");
+        });
+
+        btn2.addEventListener("mouseleave", function(){
+            alert("Out");
+        });
+    </script>
+
+
+</body>
+</html>

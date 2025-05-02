@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="username">
+
+    <script>
+
+        /*
+        Keyboard Event：
+        
+        keydown - Event fired as key pressed
+        keypress - The keypress event is fired when a letter, number, punctuation, or symbol key is pressed, or else when the Enter key is pressed — including when the Enter key is pressed in combination with the Shift key or Ctrl key.
+        keyup - Event fired as key released
+
+        */
+
+        var username = document.getElementById("username");
+        username.onkeyup = (e) =>{
+            console.log(e.target.value);
+        }
+
+        username.onkeydown = (e) =>{
+            if(e.keyCode === 13){
+                console.log("Enter");
+            }
+        }
+
+    </script>
+
+</body>
+</html>

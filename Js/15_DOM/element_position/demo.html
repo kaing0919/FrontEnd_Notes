@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>无限滚动 + 回到顶部 示例</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 顶部信息栏 */
+    .info-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #333;
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+      z-index: 100;
+    }
+
+    /* 内容区域 */
+    .container {
+      margin-top: 60px;
+      height: 300px;
+      overflow-x: auto;
+      border: 2px solid #333;
+      padding: 10px;
+    }
+
+    /* 每个条目 */
+    .item {
+      padding: 15px;
+      margin-bottom: 10px;
+      background: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    /* 回到顶部按钮 */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none; /* 初始隐藏 */
+      z-index: 100;
+      transition: opacity 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 顶部状态栏 -->
+<div class="info-bar" id="infoBar">
+
+</div>
+
+<!-- 可滚动容器 -->
+<div class="container" id="scrollContainer">
+  <!-- 动态加载内容 -->
+</div>
+
+<!-- 回到顶部按钮 -->
+<button class="back-to-top" id="backToTop">⬆ Top</button>
+
+<script>
+const container = document.getElementById('scrollContainer');
+const infoBar = document.getElementById('infoBar');
+const backToTopBtn = document.getElementById('backToTop');
+let itemCount = 10;
+
+// 初始插入内容
+function addItems(count = 10) {
+  for (let i = 0; i < count; i++) {
+    const item = document.createElement('div');
+    item.className = 'item';
+    item.textContent = `Item ${container.children.length + 1}`;
+    container.appendChild(item);
+  }
+}
+
+// 更新信息栏
+function updateInfo() {
+  const scrollTop = container.scrollTop;
+  const scrollHeight = container.scrollHeight;
+  const clientHeight = container.clientHeight;
+  const offsetHeight = container.offsetHeight;
+  const scrollPercent = Math.min(100, (scrollTop / (scrollHeight - clientHeight)) * 100).toFixed(0);
+
+  infoBar.textContent = `
+    ScrollTop: ${Math.floor(scrollTop)} |
+    ScrollHeight: ${scrollHeight} |
+    ClientHeight: ${clientHeight} |
+    OffsetHeight: ${offsetHeight} |
+    已滚动: ${scrollPercent}%
+  `;
+
+  // 显示或隐藏回到顶部按钮
+  if (scrollTop > 100) {
+    backToTopBtn.style.display = 'block';
+  } else {
+    backToTopBtn.style.display = 'none';
+  }
+}
+
+// 滚动监听
+container.addEventListener('scroll', () => {
+  updateInfo();
+
+  // 判断快滚到底了
+  if (container.scrollTop + container.clientHeight >= container.scrollHeight - 20) {
+    addItems(5); // 加5条
+  }
+});
+
+// 回到顶部按钮点击
+backToTopBtn.addEventListener('click', () => {
+  container.scrollTo({
+    top: 0,
+    behavior: 'smooth' // 平滑滚动
+  });
+});
+
+// 初始化
+addItems(itemCount);
+updateInfo();
+</script>
+
+</body>
+</html>

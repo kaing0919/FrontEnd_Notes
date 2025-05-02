@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="head">Replace</h1>
+    <input type="text" id="input">
+
+    <script>
+
+        let h = document.getElementsByTagName("h1")[0];
+
+        let text = document.createElement("input");
+
+        text.type = "text"
+
+        let input = document.getElementById("input");
+
+        input.value = h.innerText;
+
+        input.addEventListener("input", (e)=>{
+            h.innerText = e.target.value;
+        })
+
+        h.addEventListener("click", ()=>{
+            text.value = h.innerText;
+            h.replaceWith(text);
+
+        })
+
+        text.addEventListener("change", ()=>{
+            h.innerText = text.value;
+            input.value = text.value;
+            text.replaceWith(h);
+        })
+
+    </script>
+
+
+    
+</body>
+</html>

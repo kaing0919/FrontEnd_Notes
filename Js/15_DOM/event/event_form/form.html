@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin:  0;
+        }
+
+        html, body{
+            width: 100%;
+            height: 100%;
+        }
+
+        #resetBtn, #submitBtn{
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <form id="myform" onsubmit="handleSubmit">
+        <input type="text" name="username">
+        <button id="resetBtn">Reset</button>
+        <button id="submitBtn">Submit</button>
+    </form>
+
+    <script>
+
+        var resetBtn = document.getElementById("resetBtn");
+        var myform = document.getElementsByTagName("form")[0];
+
+        resetBtn.onclick = function(e){
+            //reset() is used for reseting form element to initial state
+            myform.reset();
+            e.preventDefault();
+        }
+        function handleSubmit(){
+            alert("Submited")      
+        }
+
+    </script>
+
+</body>
+</html>

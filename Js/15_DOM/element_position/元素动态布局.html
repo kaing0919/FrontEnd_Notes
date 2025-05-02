@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .card {
+            width: 60%;
+            padding: 20px;
+            margin: 50px auto;
+            background: #eee;
+            text-align: center;
+            transition: font-size 0.3s;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="card" id="myCard">
+        <p>根据宽度动态变化的字体</p>
+    </div>
+
+    <script>
+
+        const card = document.getElementById('myCard');
+
+        function adjustFontSize() {
+        const width = card.offsetWidth; // 实际宽度（含padding、border）
+        const fontSize = Math.max(14, width / 20); // 简单算法
+        card.style.fontSize = `${fontSize}px`;
+        }
+
+        // 初始执行 + 页面变化时执行
+        adjustFontSize();
+        window.addEventListener('resize', adjustFontSize);
+
+    </script>
+      
+</body>
+</html>

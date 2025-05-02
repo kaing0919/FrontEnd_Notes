@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button class="btn">submit</button>
+
+    <script>
+
+        //DOM0 Event: Pros: HTML and JS are separated.
+        //Can't add multiple events at the same time.
+
+        var btn = document.getElementsByClassName("btn")[0];
+        
+        //Being covered by "Hello World 2"
+        btn.onclick = function(){
+            alert("Hello World 1");
+        }
+
+        btn.onclick = function(){
+            alert("Hello World 2");
+        }
+
+    </script>
+
+</body>
+</html>
