@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        /*
+            1. var keyword declares variables with function scope. 
+            This means a variable declared with var is accessible throughout the function it's declared in, regardless of block-level structures like if statements or loops. 
+            If a var variable is declared outside of any function, it has global scope.
+
+            2. let keyword: Block scope
+        */
+       
+        // if(true){
+        //     var var_key = 10;
+        //     let let_key = 10;
+        // }
+        
+        //console.log(var_key) //10
+        //console.log(let_key) // let_key is not defined
+
+
+        
+
+        // function fn1(){
+        //     var i = 10;
+        // }
+        // fn();
+
+        // console.log(i); //ReferenceError: i is not defined
+
+
+
+
+        var a = [];
+        for (var i = 0; i < 10 ;i ++){
+            a[i] = function(){
+                console.log(i);
+            };
+        }
+        a[6](); //Suppose to be 6 but returned 10
+        // a.forEach(i => {
+        //     console.log(i());
+        // }) // 10 10 10 10 10...10. Var is function scope.
+
+        console.log(j); //undefined
+        var j = 10; 
+        
+
+    </script>
+
+</body>
+</html>

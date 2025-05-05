@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Promises & Async/Await Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Promises & Async/Await Tutorial</h1>
+
+    <div class="example">
+        <h2>1. Basic Promise</h2>
+        <p>Creating and using a simple Promise:</p>
+        <button onclick="runBasicPromise()">Run Basic Promise</button>
+        <div id="basicPromiseOutput" class="output"></div>
+    </div>
+
+    <div class="example">
+        <h2>2. Promise Chain</h2>
+        <p>Chaining multiple promises using .then():</p>
+        <button onclick="runPromiseChain()">Run Promise Chain</button>
+        <div id="promiseChainOutput" class="output"></div>
+    </div>
+
+    <div class="example">
+        <h2>3. Error Handling</h2>
+        <p>Handling errors in promises:</p>
+        <button onclick="runErrorHandling()">Run Error Handling</button>
+        <div id="errorHandlingOutput" class="output"></div>
+    </div>
+
+    <div class="example">
+        <h2>4. Async/Await</h2>
+        <p>Using async/await syntax:</p>
+        <button onclick="runAsyncAwait()">Run Async/Await</button>
+        <div id="asyncAwaitOutput" class="output"></div>
+    </div>
+
+    <div class="example">
+        <h2>5. Promise.all</h2>
+        <p>Running multiple promises in parallel:</p>
+        <button id="promiseAll_btn">Run Promise.all</button>
+        <div id="promiseAllOutput" class="output"></div>
+    </div>
+
+    <script>
+
+        // Helper function to log output
+        function logOutput(elementId, message) {
+            const output = document.getElementById(elementId);
+            output.textContent += message + '\n';
+            if (!output.textContent.endsWith('\n')) {
+                output.textContent += '\n';
+            }
+        }
+
+        // 1. Basic Promise Example
+        function runBasicPromise() {
+            const output = document.getElementById('basicPromiseOutput');
+            output.textContent = '';
+
+            // Creating a new Promise
+            const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('Promise resolved after 1 second!');
+                }, 1000);
+            });
+
+            // Using the Promise
+            promise.then(result => {
+                logOutput('basicPromiseOutput', result);
+            });
+        }
+
+        // 2. Promise Chain Example
+        function runPromiseChain() {
+            const output = document.getElementById('promiseChainOutput');
+            output.textContent = '';
+
+            // First promise
+            const firstPromise = new Promise((resolve) => {
+                setTimeout(() => resolve(10), 1000);
+            });
+
+            // Chaining promises
+            firstPromise
+                .then(result => {
+                    logOutput('promiseChainOutput', `First result: ${result}`);
+                    return result * 2;
+                })
+                .then(result => {
+                    logOutput('promiseChainOutput', `Second result: ${result}`);
+                    return result + 5;
+                })
+                .then(result => {
+                    logOutput('promiseChainOutput', `Final result: ${result}`);
+                });
+        }
+
+        // 3. Error Handling Example
+        function runErrorHandling() {
+            const output = document.getElementById('errorHandlingOutput');
+            output.textContent = '';
+
+            const promise = new Promise((resolve, reject) => {
+                const random = Math.random();
+                if (random > 0.5) {
+                    resolve('Success!');
+                } else {
+                    reject('Error: Random number was too low');
+                }
+            });
+
+            promise
+                .then(result => {
+                    logOutput('errorHandlingOutput', result);
+                })
+                .catch(error => {
+                    logOutput('errorHandlingOutput', error);
+                })
+                .finally(() => {
+                    logOutput('errorHandlingOutput', 'This always runs');
+                });
+        }
+
+        // 4. Async/Await Example
+        async function runAsyncAwait() {
+            const output = document.getElementById('asyncAwaitOutput');
+            output.textContent = '';
+
+            // Simulating an API call
+            const fetchData = () => {
+                return new Promise(resolve => {
+                    setTimeout(() => resolve('Data fetched successfully!'), 1500);
+                });
+            };
+
+            try {
+                logOutput('asyncAwaitOutput', 'Fetching data...');
+                const result = await fetchData();
+                logOutput('asyncAwaitOutput', result);
+            } catch (error) {
+                logOutput('asyncAwaitOutput', `Error: ${error}`);
+            }
+        }
+
+        // 5. Promise.all Example
+        function runPromiseAll() {
+            const output = document.getElementById('promiseAllOutput');
+            output.textContent = '';
+
+            // Multiple promises
+            const promise1 = new Promise(resolve => setTimeout(() => resolve('First'), 1000));
+            const promise2 = new Promise(resolve => setTimeout(() => resolve('Second'), 2000));
+            const promise3 = new Promise(resolve => setTimeout(() => resolve('Third'), 1500));
+
+            // Running all promises in parallel
+            Promise.all([promise1, promise2, promise3])
+                .then(results => {
+                    logOutput('promiseAllOutput', 'All promises completed:');
+                    results.forEach((result, index) => {
+                        logOutput('promiseAllOutput', `${index + 1}. ${result}`);
+                    });
+                });
+        }
+
+        function throttle(fn, delay) {
+            let lastCall = 0;
+            return function(...args) {
+                const now = new Date().getTime();
+                if (now - lastCall < delay) {
+                    console.log('Too soon! Wait before clicking again');
+                    return;
+                }
+                lastCall = now;
+                return fn.apply(this, args);
+            };
+        }
+
+        // Properly set up the throttled function
+        const throttledPromiseAll = throttle(runPromiseAll, 5000);
+
+        var btn = document.getElementById("promiseAll_btn");
+        btn.addEventListener("click", () => {
+            throttledPromiseAll();
+        });
+            </script>
+</body>
+</html> 

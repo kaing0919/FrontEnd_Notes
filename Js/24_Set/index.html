@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //No duplicated number allowed
+        const s = new Set();
+
+        [1,2,2,2,3,4,5,5,5].forEach(e => s.add(e));
+
+        console.log(...s);
+
+        console.log(s.size); //5
+
+        s.add(8) // s = 1,2,3,4,5,8
+
+        s.has(8) //true
+
+        s.delete(8);// s = 1,2,3,4,5
+
+        console.log(s.size); //5
+
+        s.clear(); //set cleared
+
+        for( i of s){
+            console.log(i)
+        }
+
+        let array = [1,2,2,2,4,5,6,7]
+
+        //remove duplicated elements
+        let new_arr = [...new Set(array)];
+
+        //remove duplicate characters
+        let remove_repeat = [...new Set("ababbc")].join("");
+
+        console.log(remove_repeat)//abc
+
+        
+        
+
+
+
+
+    </script>
+
+</body>
+</html>

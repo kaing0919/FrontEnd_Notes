@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let { log } = console;
+
+        log("\u0061"); // a
+        log("\u0062"); // b
+
+        var str = "hello"
+
+        // string iterator
+        for (let i of str){
+            log(i)
+        }
+
+        for (let i = 0; i < str.length; i++){
+            log(str[i]);
+        }
+
+        let url = "https://www.youtube.com";
+        let text = "link"
+        let mode = "_top"
+        let h1 = `<a href=${url} target=${mode}>${text}</a>`
+
+        var e = document.createElement("div");
+        e.classList.add("divvv");
+        e.innerHTML = h1;
+
+        document.body.appendChild(e);
+
+    </script>
+
+</body>
+</html>

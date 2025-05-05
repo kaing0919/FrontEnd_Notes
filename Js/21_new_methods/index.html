@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>hahaha</h3>
+    <h3>hahaha</h3>
+    <h3>hahaha</h3>
+    
+    <script>
+
+        let {log} = console;
+
+         //arguments is a arrayLike (Another example is classList or querySelectorAll); Only Reading and length method is permitted
+        function add(){
+            let arr = Array.from(arguments)// 10 20 30
+            arr[0] = 15;
+
+            log(arguments[0]); //10
+            log(arguments[1]); //20
+            log(arguments[2]); //30
+            log(arguments[3]); // undefined
+            
+
+            
+
+        }
+        add(10,20,30)
+
+
+        //Element array
+        var elements = document.querySelectorAll("h3");
+        element = Array.from(elements);
+        log(...element)
+
+        //array-like object
+        let arraylike = {
+            '0' : 'a',
+            '1' : 'b',
+            '2' : 'c',
+            'length' : 3
+        }
+
+        let arr = Array.from(arraylike);
+
+
+        let a = Array.of(1,2,3,4,5);
+        log(a) // [1,2,3,4,5]
+        Array(3) // Initialize an array with length of 3
+
+
+    </script>
+
+</body>
+</html>

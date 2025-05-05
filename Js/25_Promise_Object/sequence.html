@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const isa = true;
+        const isb = true;
+        const isc = true;
+        const isd = true;
+
+        function A(){
+
+            return new Promise( (resolve, reject) =>{
+
+                console.log("---------Executing A API logic---------")
+
+                setTimeout(()=>{
+                    if(isa){
+                    resolve('---------A execution completed---------');
+                    }
+                    else{
+                        reject('---------A execution failure---------')
+                    }
+                },1000)
+
+            } )
+
+        }
+
+        function B(){
+
+            return new Promise( (resolve, reject) =>{
+
+                console.log("---------Executing B API logic---------")
+
+                setTimeout(()=>{
+                    if(isb){
+                    resolve('---------B execution completed---------');
+                    }
+                    else{
+                        reject('---------B execution failure---------')
+                    }
+                },1000)
+
+            } )
+
+        }
+
+
+        // A().then(res => { 
+        //     console.log(res)
+        //     return B();
+        // }).then(res => {
+
+        //     console.log(res)
+
+        // })
+
+
+
+
+        //Implementation
+        async function fn(){
+            const res = await A()
+            console.log(res)
+
+            const resB = await B();
+            console.log(resB)
+        }
+
+        fn()
+    </script>
+
+</body>
+</html>

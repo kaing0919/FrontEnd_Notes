@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        class Person{
+
+            //
+            static fun(){
+                console.log("static")
+            }
+
+            fun(){
+                console.log("Non-static")
+            }
+        }
+
+        Person.fun();
+
+        let kai = new Person();
+        (new Person()).fun()
+        
+
+        Person.age = 30;
+        console.log(kai.age) //Undefined
+        console.log(Person.age)
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var user = {
+            name: "iwen",
+            age: 20
+        }
+
+        console.log(user.name);
+        console.log(user.age);
+
+        //Must be same name as variable name to get desire value
+        //Order of variable will not impact the value assignment
+        const {age, name, address} = user;
+
+        console.log(name);
+        console.log(age);
+        console.log(address) // undefined
+
+        const{ log } = console;
+        log(name + age)
+
+        const {abs, ceil, floor, random} = Math;
+        log(abs(-5)); // 5
+
+        let hello = "hello";
+        // let { hello } = {hello : "hello"} //Error
+
+        ({hello} = {hello: "hello"}); //Correct
+
+    </script>
+</body>
+</html>

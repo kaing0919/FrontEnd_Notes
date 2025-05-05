@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        class Person{
+            
+            constructor(name,age){
+
+                this.name = name;
+                this.age = age;
+            }
+
+            getName(){ console.log(this.name) }
+
+            static getInfo(){console.log("static")}
+
+        }
+
+
+        class Student extends Person{
+
+            //child class must class super() within its constructor
+            constructor(name,age, hobbies){
+                super(name,age)
+                this.hobbies = hobbies; 
+            }
+
+            getSchool(){
+                console.log("school")
+            }
+
+            add_hobby(new_hobby){
+                this.hobbies.push(new_hobby);
+            }
+
+            print_Hobby(){ this.hobbies.forEach(i => console.log(i))}
+
+        }
+
+        let kai = new Student("Kai", 24,["Basketball"]);
+        Student.getInfo();
+        kai.add_hobby("Bedminton")
+        kai.print_Hobby()
+
+    </script>
+
+</body>
+</html>
